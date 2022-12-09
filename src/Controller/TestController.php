@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class TestController
 {
@@ -11,17 +12,13 @@ class TestController
         var_dump("Ca fonctionne");
         die();
     }
-    public function test()
+    public function test(Request $request,$age)
     {
 
-        $request= Request::createFromGlobals();
+      
 
-        $age=$request->query->get('age', 0);
-        //$age= 0;
 
-       // if(!empty($_GET['age'])){
-       // $age = $_GET['age'];
-    
-        dd("vous avez $age ans");
-    }    
+    return new Response("vous avez $age ans");
+       
     }
+}
